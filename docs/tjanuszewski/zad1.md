@@ -1,5 +1,12 @@
 #*Tomasz Januszewski*
 
+```
+System operacyjny: Ubuntu 13.10
+Procesor: Intel(R) Core(TM)2 Duo CPU @ 2.20GHz x 2
+RAM: 4 GB
+Dysk: TOSHIBA MK4058GSX 400GB
+Partycje: 46GB/Ext4, 2GB/swap
+```
 
 ###Rozwiązania do zadań
 
