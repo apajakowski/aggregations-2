@@ -70,3 +70,57 @@ user	0m33.200s
 sys	0m16.880s
 sob, 4 sty 2014, 10:51:39 CET
 ```
+
+```sh
+> db.text.count()
+17005207
+```
+
+```sh
+> db.text8.distinct("word").length
+253854
+```
+
+Różnych słów jest 253854.
+
+###1 wyraz (najczęściej występujący) - 6.24% wszystkich wyrazów
+```sh
+> db.text8.aggregate([ 
+    { $group: {  _id: "$word" , count:{ $sum: 1 } } }, 
+    { $sort: { count: -1 } }, 
+    { $limit: 1 } 
+])
+{ "result" : [ { "_id" : "the", "count" : 1061396 } ], "ok" : 1 }
+```
+
+###10 wyrazów - 24.73%
+```sh
+> db.text8.aggregate([ 
+    { $group: {  _id: "$word" , count:{ $sum: 1 } } }, 
+    { $sort: { count: -1 } }, 
+    { $limit: 10 } 
+])
+{ "result" : [ { "_id" : "the", "count" : 4205965 } ], "ok" : 1 }
+```
+
+###100 wyrazów - 47.03%
+```sh
+> db.text8.aggregate([ 
+    { $group: {  _id: "$word" , count:{ $sum: 1 } } }, 
+    { $sort: { count: -1 } }, 
+    { $limit: 100 } 
+])
+{ "result" : [ { "_id" : "the", "count" : 7998978 } ], "ok" : 1 }
+```
+
+###1000 wyrazów - 67.23%
+```sh
+> db.text8.aggregate([ 
+    { $group: {  _id: "$word" , count:{ $sum: 1 } } }, 
+    { $sort: { count: -1 } }, 
+    { $limit: 10 } 
+])
+{ "result" : [ { "_id" : "the", "count" : 11433354 } ], "ok" : 1 }
+```
+
+
