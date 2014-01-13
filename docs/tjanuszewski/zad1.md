@@ -60,6 +60,7 @@ czas trwania, ok 4 minut.
 
 
 d)
+```sh
 tomasch@tomasch-pc:~/mongo$ date ;  time mongoimport -d test -c train --type csv --headerline --file transformed.csv ; date
 sob, 4 sty 2014, 10:50:22 CET
 Sat Jan 4 10:51:39.510 imported 999999 objects
@@ -67,3 +68,4 @@ real	1m16.973s
 user	0m33.200s
 sys	0m16.880s
 sob, 4 sty 2014, 10:51:39 CET
+```
