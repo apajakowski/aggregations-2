@@ -44,3 +44,68 @@ db.places.aggregate({ $group: { _id: "$location", count: {$sum: 1 }}},{$sort: { 
 	],
 	"ok" : 1
 }
+
+
+
+db.places.aggregate({ $group: { _id: {$substr:["$sighted_at",4,2]}, count: {$sum: 1 }}},{$sort: { _id: 1 }})
+{
+	"result" : [
+		{
+			"_id" : "",
+			"count" : 252
+		},
+		{
+			"_id" : "00",
+			"count" : 2
+		},
+		{
+			"_id" : "01",
+			"count" : 4233
+		},
+		{
+			"_id" : "02",
+			"count" : 3629
+		},
+		{
+			"_id" : "03",
+			"count" : 4150
+		},
+		{
+			"_id" : "04",
+			"count" : 4095
+		},
+		{
+			"_id" : "05",
+			"count" : 4181
+		},
+		{
+			"_id" : "06",
+			"count" : 6707
+		},
+		{
+			"_id" : "07",
+			"count" : 7311
+		},
+		{
+			"_id" : "08",
+			"count" : 6616
+		},
+		{
+			"_id" : "09",
+			"count" : 5630
+		},
+		{
+			"_id" : "10",
+			"count" : 5394
+		},
+		{
+			"_id" : "11",
+			"count" : 4932
+		},
+		{
+			"_id" : "12",
+			"count" : 3913
+		}
+	],
+	"ok" : 1
+}
