@@ -7,7 +7,7 @@
 ## Spis treści 
 * [Opis bazy](#opis-bazy) 
 * [MongoDB](#mongodb) 
-	* [Liczba rekordów i przykład](#liczba-rekordów i przykład) 
+	* [Liczba rekordów i przykład](#liczba-rekordów-i-przykład) 
 	* [Pierwsza agregacja](#pierwsza-agregacja) 
 	* [Druga agregacja](#druga-agregacja) 
 * [Elasticsearch](#elasticsearch) 
