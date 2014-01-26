@@ -52,7 +52,14 @@ Ilość różnych słów:
 db.word.distinct("word").length
 253854
 ```
-
+Najczęściej wystepujące słowo w tekście to "the". Stanowi 6,24% całości.
+```js
+db.word.aggregate(
+        { $group: { _id: "$slowko", count: { $sum: 1 } } } , 
+        { $sort: { count: -1 } }, 
+        { $limit: 1 })
+)
+```
 Ile procent stanowi 1, 10, 100, 1000 najczęstszych słów?
 ```json
 {
