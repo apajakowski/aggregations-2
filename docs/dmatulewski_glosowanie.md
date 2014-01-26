@@ -4,18 +4,16 @@
 
 ## Zadanie 2 
 
-## Spis treści ##
-    * [Opis bazy](#opis-bazy)
-    * [MongoDB](#mongodb)
-        * [Import bazy do mongo](#import-bazy-do-mongo)
-        * [Liczba rekordow + przyklad](#liczba-rekordow-+-przyklad)
-        * [Pierwsza agregacja](#pierwsza-agregacja)
-        * [Druga agregacja](#druga-agregacja)
-    * [Elasticsearch](#elasticsearch)
-        * [Import elasticsearch](#import-elasticsearch)
-        * [Pierwsza agregacja](#pierwsza-agregacja-elasticsearch)
-        * [Druga agregacja](#druga-agregacja-elasticsearch)
-
+## Spis treści 
+* [Opis bazy](#opis-bazy) 
+* [MongoDB](#mongodb) 
+	* [Liczba rekordów i przykład](#liczba-rekordów-i-przykład) 
+	* [Pierwsza agregacja](#pierwsza-agregacja) 
+	* [Druga agregacja](#druga-agregacja) 
+* [Elasticsearch](#elasticsearch) 
+	* [Import elasticsearch](#import-elasticsearch) 
+	* [Pierwsza agregacja](#pierwsza-agregacja-elasticsearch) 
+	* [Druga agregacja](#druga-agregacja-elasticsearch)
    
 
 ## Opis bazy
@@ -34,7 +32,7 @@ MongoDB shell version: 2.4.7
 ```bash
 mongoimport --db vote --collection votes --type csv --file C:/votes.csv
 ```
-## Liczba rekordów + przykład
+## Liczba rekordów i przykład
 ```bash
 > db.vote.count()
      
