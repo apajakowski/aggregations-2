@@ -2,16 +2,19 @@
 ###
 ----
 
-## Zadanie 2
+## Zadanie 2 
+
+## Spis treści ##
     * [Opis bazy](#opis-bazy)
     * [MongoDB](#mongodb)
         * [Import bazy do mongo](#import-bazy-do-mongo)
-        * [Pierwsza agregacja](#pierwsza-aggregacja)
-        * [Druga agregacja](#druga-aggregacja)
+        * [Liczba rekordow + przyklad](#liczba-rekordow-+-przyklad)
+        * [Pierwsza agregacja](#pierwsza-agregacja)
+        * [Druga agregacja](#druga-agregacja)
     * [Elasticsearch](#elasticsearch)
         * [Import elasticsearch](#import-elasticsearch)
-        * [Pierwsza agregacja](#pierwsza-aggregacja-elasticsearch)
-        * [Druga agregacja](#druga-aggregacja-elasticsearch)
+        * [Pierwsza agregacja](#pierwsza-agregacja-elasticsearch)
+        * [Druga agregacja](#druga-agregacja-elasticsearch)
 
    
 
@@ -31,7 +34,7 @@ MongoDB shell version: 2.4.7
 ```bash
 mongoimport --db vote --collection votes --type csv --file C:/votes.csv
 ```
-## Liczba i przykład
+## Liczba rekordów + przykład
 ```bash
 > db.vote.count()
      
@@ -47,7 +50,7 @@ mongoimport --db vote --collection votes --type csv --file C:/votes.csv
 }
 ```
 
-## Pierwsza aggregacja:
+## Pierwsza agregacja:
 Wyświetlenie ile zostało oddanych pozytywnych, negatywnych głosów bądź ile osób powstrzymało sie od niego.
 
 ```bash
@@ -76,11 +79,13 @@ Wyświetlenie ile zostało oddanych pozytywnych, negatywnych głosów bądź ile
 Wykres:
 ![Diagram](../images/dmatulewski/diagram1.png)
 
-## Druga aggregacja:
+## Druga agregacja:
 Top 5 osób które oddały najwięcej głosów.
    
 ```bash
-> db.vote.aggregate( [ { $match : { vote : "yes"}}, {$group: { _id: "$name", suma : {$sum: 1 }}}, { $limit: 5 }, { $sort : { suma : -1, posts: 1 } }])
+> db.vote.aggregate( [ { $match : { vote : "yes"}}, 
+	{$group: { _id: "$name", suma : {$sum: 1 }}}, { $limit: 5 }, 
+		{ $sort : { suma : -1, posts: 1 } }])
 {
         "result" : [
                 {
@@ -122,7 +127,7 @@ Wrzuciłem bazę w częściach, ze względu na duży rozmiar danych.
 ```bash
 curl localhost:9200/vote/_bulk --data-binary @vote1.bulk
 ```
-## Pierwsza aggregacja elasticsearch:
+## Pierwsza agregacja elasticsearch:
 
 Wyświetlenie ile zostało oddanych pozytywnych, negatywnych głosów bądź ile osób powstrzymało się od niego:
 
@@ -150,7 +155,7 @@ Wyświetlenie ile zostało oddanych pozytywnych, negatywnych głosów bądź ile
 Wykres:
 ![Diagram](../images/dmatulewski/diagram1.png)
 
-## Druga aggregacja elasticsearch:
+## Druga agregacja elasticsearch:
 
 Top 5 osób które oddały najwięcej głosów.
 
