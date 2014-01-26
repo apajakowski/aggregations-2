@@ -32,7 +32,7 @@ MongoDB shell version: 2.4.7
 ```bash
 mongoimport --db vote --collection votes --type csv --file C:/votes.csv
 ```
-## Liczba rekordów + przykład
+## Liczba rekordów i przykład
 ```bash
 > db.vote.count()
      
