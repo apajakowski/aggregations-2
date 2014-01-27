@@ -38,6 +38,7 @@ mongo --username student --password sesja2013 153.19.1.202/test
 1. [Głowacki, Michał](/docs/mglowacki.md).
 1. [Gniado, Bartosz](/docs/bgniado/README.md).
 1. [Groszek, Rafał](/docs/rgroszek/README.md).
+1. [Januszewski, Tomasz](/docs/tjanuszewski/zad1.md). [UFO](/docs/tjanuszewski/zad2.md).
 1. [Karczewski, Kamil](/docs/kkarczewski.md). [Baza filmów](/docs/kkarczewski2.md).
 1. [Karwowski, Kamil](/docs/kkarwowski.md). [Strony internetowe](/docs/kkarwowski-2.md).
 1. [Kłeczek, Piotr](/docs/pkleczek/README.md). [The Internet Movie Database.](/docs/pkleczek/ZADANIE2.md)
