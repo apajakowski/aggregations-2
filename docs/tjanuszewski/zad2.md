@@ -1,3 +1,7 @@
+
+Dane ściągnięte z UFO ze strony http://www.infochimps.com/.
+
+```sh
 db.places.aggregate({ $group: { _id: "$location", count: {$sum: 1 }}},{$sort: { count: -1 }},{$limit: 10})
 {
 	"result" : [
@@ -44,9 +48,12 @@ db.places.aggregate({ $group: { _id: "$location", count: {$sum: 1 }}},{$sort: { 
 	],
 	"ok" : 1
 }
+```
+
+![Wystąpienia ufo wg miast](../../images/tjanuszewski/wykres1.png)
 
 
-
+```sh
 db.places.aggregate({ $group: { _id: {$substr:["$sighted_at",4,2]}, count: {$sum: 1 }}},{$sort: { _id: 1 }})
 {
 	"result" : [
@@ -108,4 +115,7 @@ db.places.aggregate({ $group: { _id: {$substr:["$sighted_at",4,2]}, count: {$sum
 		}
 	],
 	"ok" : 1
+	
+```	
+	![Wystąpienia ufo wg miesięcy](../../images/tjanuszewski/wykres2.png)
 }
