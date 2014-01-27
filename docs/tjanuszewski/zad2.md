@@ -1,4 +1,3 @@
-
 Dane ściągnięte z UFO ze strony http://www.infochimps.com/.
 
 ```sh
@@ -115,7 +114,9 @@ db.places.aggregate({ $group: { _id: {$substr:["$sighted_at",4,2]}, count: {$sum
 		}
 	],
 	"ok" : 1
-	
+
+}	
 ```	
-	![Wystąpienia ufo wg miesięcy](../../images/tjanuszewski/wykres2.png)
-}
+
+![Wystąpienia ufo wg miesięcy](../../images/tjanuszewski/wykres2.png)
+
