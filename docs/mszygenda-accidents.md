@@ -12,13 +12,7 @@
 4. [ElasticSearch](#elastic-search)
  1. [Import](#import-w-elasticsearch)
  1. [Agregacje](#agregacje-w-elasticsearch)
-5. [MapReduce](#map-reduce)
- 1. [Opis agregacji](#map-reduce)
- 1. [Funkcje pomocnicze](#funkcje-pomocnicze)
- 1. [Funkcja map](#map)
- 1. [Funkcja reduce](#reduce)
- 1. [Wynik](#wynik)
- 1. [Wykresy](#wykresy)
+
 
 # Dane #
 
