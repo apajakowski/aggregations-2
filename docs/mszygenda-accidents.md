@@ -45,6 +45,7 @@ Wygląda on dość kryptycznie jednak poszczególne liczby kodują informację o
 
 Dane zostały zaimportowane do openrefine w 2 porcjach po 500 000 rekordów. Dla każdej porcji zostały wykonane następujące kroki:
 
+
 ####Kolumna Weather-Conditions została przetransformowana w następujący sposób####
 
 Dane o warunkach pogodowych były zapisane w postaci liczb których znaczenie podane jest w odpowiednim dokumencie. Dla uproszczenia zostały one przetransformowane do napisów
@@ -435,109 +436,3 @@ $ node weatherElastic.js
 **Wynik**
 
 Otrzymany wynik jest oczywiście identyczny z wynikami uzyskanymi z MongoDB
-
-
-#Map Reduce#
-
-Związek między oświetleniem/porą dnia a wypadkami.
-
-Informację o porze dnia zawiera kolumna "TimeOfDay". Niestety obejmuje ona tylko dwie pory dnia "Day" i "Night". Dodatkowo dla niektórych rekordów jest nieokreślona ("Unknown"). Można jednak dość precyzyjnie określić porę dnia z wykorzystaniem pola "Date".
-
-Wprowadzone zostaną 4 pory dnia "Night", "Morning", "Afternoon" oraz "Evening". Do każdej z nich zostanie włączona informacja o oświetleniu. Tak powstały klucz będzie służył za podstawę do zliczenia ilości wypadków które odbyły się za dnia, nocy itd.
-
-Do wykonania agregacji został wykonany odpowiedni skrypt ([mapReduce.js](../scripts/mszygenda/mapReduce.js))
-
-##Funkcje pomocnicze##
-
-Funkcja obliczająca porę dnia:
-
-```
-function getTimeOfDay (record) {
-  var date = new Date(record.Date);
-  var hour = date.getHours();
-
-  if (hour >= 0 && hour <= 5) {
-    return "Night";
-  } else if (hour >= 6 && hour <= 12) {
-    return "Morning";
-  } else if (hour >= 13 && hour <= 18) {
-    return "Afternoon";
-  } else {
-    return "Evening";
-  }
-}
-```
-
-Funkcja transformująca pole "LightsPresent" do napisu
-
-```
-function getLightsInfo (record) {
-  if (record.LightsPresent == 1) {
-    return "WithLightsOn";
-  } else {
-    return "WithLightsOff";
-  }
-}
-```
-
-Funkcja obliczająca klucz w funkcji map
-
-```
-var getMapKey = function (record) {
-  return getTimeOfDay(record) + getLightsInfo(record);
-}
-```
-
-##Map##
-
-Funkcja map dla każdego rekordu emituje dwa klucze. Pierwszy z nich zawiera informację o porze dnia i oświetleniu, natomiast drugi zawiera wyłącznie informację o porze dnia.
-
-```
-function map () {
-  emit(getMapKey(this), 1);
-  emit(getTimeOfDay(this) + "Total", 1);
-}
-```
-
-##Reduce##
-
-Dla każdego klucza wartości są sumowane
-
-```
-function reduce (k, vals) {
-  return Array.sum(vals);
-}
-```
-
-##Wynik##
-
-```
-$ mongo nosql scripts/mszygenda/mapReduce.js --quiet
-AfternoonTotal,399989
-AfternoonWithLightsOff,369101
-AfternoonWithLightsOn,30888
-EveningTotal,250229
-EveningWithLightsOff,145256
-EveningWithLightsOn,104973
-MorningTotal,216084
-MorningWithLightsOff,205625
-MorningWithLightsOn,10459
-NightTotal,133698
-NightWithLightsOff,37732
-NightWithLightsOn,95966
-```
-
-##Wykresy##
-
-**Diagram kołowy uwzględniający samą porę dnia**
-
-![Pory dnia - wykres](../images/mszygenda/timeOfDay.png)
-
-**Wykres słupkowy uwzględniający również oświetlenie**
-
-![Pory dnia i oświetlenie - wykres](../images/mszygenda/timeOfDay2.png)
-
-
-**Wnioski**
-
-Jak widać na wykresach najwięcej wypadków zdarza się w godzinach popołudniowych. Drugą najczęstszą porą dnia są wieczory. Jak słusznie można było przypuszczać brak oświetlenia ma negatywny wpływ na bezpieczeństwo na drogach.
