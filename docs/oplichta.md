@@ -107,7 +107,7 @@ sys	0m8.909s
 ```
 
 ```js
-`the` występuje 1061396 razy co stanowi 6.241594118789616% wszystkich słów
+`the` występuje 1061396 razy co stanowi 6% wszystkich słów
 ```
 ###Czas
 
@@ -232,7 +232,7 @@ sys	0m0.012s
 ```
 
 ```js
-te słowa występują w sumie 7998978 razy co stanowi 47.03840417820259% wszystkich słów
+te słowa występują w sumie 7998978 razy co stanowi 47% wszystkich słów
 ```
 ###Czas
 
@@ -296,7 +296,7 @@ sys	    0m0.016s
 ```
 
 ```js
-te słowa występują w sumie 11433354 razy co stanowi 67.23443001899359% wszystkich słów
+te słowa występują w sumie 11433354 razy co stanowi 67% wszystkich słów
 ```
 ###Czas
 
@@ -348,10 +348,12 @@ sys	0m0.080s
 ```
 #Zapytania
 
-## $Near
+## Przykład 1: $Near
 ```js
 var punkt = { "type" : "Point", "coordinates" : [ -73.66054066,  42.705867 ] };
 ```
+Mapa [tutaj](/scripts/oplichta/1e/a.geojson)
+
 ```js
 db.geoma.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200000} }).toArray()
 ```
@@ -372,6 +374,8 @@ db.geoma.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 20000} }).toArray
 	}
 ]
 ```
+## Przykład 2: $geoWithin
+Mapa [tutaj](/scripts/oplichta/1e/b.geojson)
 ```js
 db.geoma.find({ loc: {$geoWithin : { $center : [ [ -73.4717792,42.666746 ] , 0.15] } }}).toArray();
 ```
@@ -403,12 +407,15 @@ db.geoma.find({ loc: {$geoWithin : { $center : [ [ -73.4717792,42.666746 ] , 0.1
 		}
 	}
 ]
-
-#przykład 3
+```
+#przykład 3: $geoIntersects
 
 var obszar = {     "type" : "Polygon",      "coordinates" :      [ [          [ -74 , 42.75 ],          [ -73 , 42.75 ],          [ -73 , 42    ],          [ -74 , 42    ],          [ -74 , 42.75 ]      ] ] };
 
+Mapa [tutaj](/scripts/oplichta/1e/c.geojson)
 ##wynik
+
+db.geony.find({ loc : { $geoIntersects : { $geometry : obszar } } }).toArray();
 
 1815 elementow
 
@@ -427,10 +434,12 @@ var obszar = {     "type" : "Polygon",      "coordinates" :      [ [          [ 
 	}
 ```
 
-#przyklad 4
+
+#przyklad 4:  $geoIntersects
 var linia = {   "type": "LineString",    "coordinates":      [       [ -73 , 42 ] , [ -74 , 42.75 ]     ] };
 
 
-
+```js
 db.geoma.find({ loc : { $geoIntersects : { $geometry : linia } } }).toArray();
 ```
+Mapa [tutaj](/scripts/oplichta/1e/e.geojson).

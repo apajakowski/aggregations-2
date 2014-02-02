@@ -6,7 +6,7 @@
 Wszystkie operacje przeprowadziłem używając laptopa Packard Bell EasyNote LM86.
 
 ## Zadanie 1
-### a)
+### Import danych
 Najpierw przygotowałem plik do importu za pomocą skryptu 2unix.sh. Import do bazy wykonałem poleceniem:
 
 ```
@@ -15,7 +15,7 @@ Najpierw przygotowałem plik do importu za pomocą skryptu 2unix.sh. Import do b
 
 Czas importowania pliku wyniósł 9 minut i 10 sekund.
 
-### b)
+### Ilość rekordów
 Ilość wczytanych rekordów sprawdziłem poleceniem:
 
 ```
@@ -24,7 +24,7 @@ db.Train.count()
 
 Otrzymałem wynik 6034195, zgodny z liczbą rekordów w pliku.
 
-### c)
+### Konwersja tagów
 Program konwertujący tagi na tablicę napisów napisałem w języku C. Jego kod znajduje się [tutaj](/docs/mpikora/mongo1c.c). Należy go skompilowac poleceniem (po zainstalowaniu odpowiednich sterowników):
 
 ```
@@ -37,7 +37,7 @@ Sterownik do języka C można ściągnać ze strony http://docs.mongodb.org/ecos
 Instrukcja jego instalacji: http://api.mongodb.org/c/current/building.html
 Jeśli sterownik nie działa od razu po zainstalowaniu: http://stackoverflow.com/questions/17028354/compiling-mongo-c-driver-example-program
 
-### d)
+### Najczęstsze słowa
 
 Plik przygotowałem do importu zgodnie z opisem w poleceniu. Import wykonałem przez:
 
@@ -59,7 +59,7 @@ db.text8.distinct("word").length
 
 Różnych słów jest 253854.
 
-```
+```JSON
 db.text8.aggregate([ 
 	{$group:{ _id:"$word", count:{$sum:1}}}, 
 	{$sort: {count: -1}}, 
@@ -73,7 +73,7 @@ db.text8.aggregate([
 
 Najczęściej występujące słowo w tym pliku stanowi około 6,25% jego zawartości.
 
-```
+```JSON
 db.text8.aggregate([ 
 	{$group:{_id:"$word", count:{$sum:1}}}, 
 	{$sort: {count: -1}}, 
@@ -88,7 +88,7 @@ db.text8.aggregate([
 
 10 najczęściej występujących słów stanowi około 24,73% jego zawartości.
 
-```
+```JSON
 db.text8.aggregate([ 
 	{$group:{_id:"$word", count:{$sum:1}}}, 
 	{$sort: {count: -1}}, 
@@ -103,7 +103,7 @@ db.text8.aggregate([
 
 100 najczęściej występujących słów stanowi około 47% jego zawartości.
 
-```
+```JSON
 db.text8.aggregate([ 
 	{$group:{_id:"$word", count:{$sum:1}}}, 
 	{$sort: {count: -1}}, 
@@ -118,7 +118,10 @@ db.text8.aggregate([
 
 1000 najczęściej występujących słów stanowi około 67% jego zawartości.
 
-### e)
+Wyniki te przedstawia poniższy wykres:
+![zawartosc najpopularniejszych slow w tekscie](../../images/mpikora/wykresslowa.png)
+
+### e) Dane geograficzne
 Do zadania użyłem danych dotyczących hrabstw w USA.Dostępne są one pod adresem (http://eric.clst.org/Stuff/USGeoJSON). Kilku Jsonów mongo nie był w stanie poprawnie sparsować, więc usunąłem je. Dane wczytałem do bazy poleceniem:
 
 ```
@@ -133,7 +136,7 @@ Przykładowe zapytania:
 
 hrabstwo, w którym znajduje się Waszyngton:
 
-```
+```JSON
 db.uscounties.findOne({ 
 	geometry: {$near: {
 		$geometry: {type: "Point", coordinates: [-38.88,77.03]}
@@ -143,7 +146,7 @@ db.uscounties.findOne({
 
 10 hrabstw najbliższych Waszyngtonowi, pomijając hrabstwo w którym leży:
 
-```
+```JSON
 db.uscounties.find({ 
 	geometry: {$near: {
 		$geometry: {type: "Point", coordinates: [-77.03,38.88]}
@@ -153,7 +156,7 @@ db.uscounties.find({
 
 Wyświetl wszystkie hrabstwa leżące wewnątrz kwadratu [-100,35], [-102,35], [-102,37], [-100,37]:
 
-```
+```JSON
 db.uscounties.find({
 	geometry: {$geoWithin: {
 		$geometry: {type: "Polygon", coordinates: [[[-100,35], [-102,35], [-102,37], [-100,37], [-100,35]]]} 
@@ -163,7 +166,7 @@ db.uscounties.find({
 
 Wyświetl wszystkie hrabstwa leżące na równoleżniku 40:
 
-```
+```JSON
 db.uscounties.find( {
 	geometry: {$geoIntersects: {
 		$geometry: {type: "LineString", coordinates: [ [-0,40], [-90,40], [-180,40] ]}
@@ -173,7 +176,7 @@ db.uscounties.find( {
 
 Wyświetl wszystkie hrabstwa leżące do 100km od Waszyngtonu
 
-```
+```JSON
 db.uscounties.find({ 
 	geometry: {$near: {
 		$geometry: {type: "Point", coordinates: [-77.03,38.88]}},
@@ -183,7 +186,7 @@ db.uscounties.find({
 
 Wyświetl hrabstwa leżące na drodze z Chicago do Waszyngtonu (w linii prostej)
 
-```
+```JSON
 db.uscounties.find( 
 	{geometry: {$geoIntersects: {
 		$geometry: {type: "LineString", coordinates: [ [-77.03,38.88], [-87.62,41.87] ]}
