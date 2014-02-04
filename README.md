@@ -96,8 +96,8 @@ And two more rules:
 
 ## Różne rzeczy
 
-1. Do automatycznego wygenerowania spisu treści możemy użyć narzędzia
-o nazwie [table-of-contents-preprocessor](https://github.com/aslushnikov/table-of-contents-preprocessor).
+1. Do automatycznego wygenerowania spisu treści w zadaniach można użyć narzędzia
+[Table of Contents Preprocessor](https://github.com/aslushnikov/table-of-contents-preprocessor).
 1. Jak sobie radzić z [nieczystymi committami](Git-Pull-Requests.md)?
 1. Przykładowe **big data** (+19M rekordów) –
 [GetGlue and Timestamped Event Data](http://getglue-data.s3.amazonaws.com/getglue_sample.tar.gz)
