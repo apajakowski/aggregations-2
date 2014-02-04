@@ -105,6 +105,5 @@ git stash drop  stash@{0}
 * Chris Wanstrath, [hub makes git better with GitHub](http://defunkt.io/hub/)
 * Scott Chacon, [Pro Git](http://git-scm.com/book);
   [Pro Git PL](http://git-scm.com/book/pl) (niekompletne tłumaczenie na język polski)
-  -[6.4 Git Tools - Rewriting History](http://git-scm.com/book/en/Git-Tools-Rewriting-History)
-
-
+  - [6.4 Git Tools - Rewriting History](http://git-scm.com/book/en/Git-Tools-Rewriting-History)
+* Seth Robertson, [On undoing, fixing, or removing commits in git](http://sethrobertson.github.io/GitFixUm/fixup.html)
