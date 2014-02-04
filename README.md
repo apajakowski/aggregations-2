@@ -5,7 +5,7 @@
 Kilka przykładowych agregacji korzystających z danych
 [zipcodes](http://media.mongodb.org/zips.json) oraz
 [imieniny](data/wbzyl/imieniny.csv) opisano w artykule
-[Aggregation Framework Examples](Aggregation-Framework-Examples-in-Javascript.md)
+[Aggregation Framework Examples](Aggregation-Framework-Examples-in-Javascript.md).
 
 
 ## Wasze agregacje
