@@ -2,22 +2,10 @@
 
 ![Data Wranglers](images/data-wrangler.jpg)
 
-Do aggregacji można wykorzystać następujące kolekcje:
-
-* *census1881*
-* *zipcodes*, [przykładowe agregacje](/Aggregation-Framework-Examples-in-Javascript.md)
-* *imieniny*, [przykładowe agregacje](/Aggregation-Framework-Examples-in-Javascript.md)
-* *poland* – Open Street Data dla Polski
-* *airports* (B. Bedra)
-
-Kolekcje zostały zaimportowane do bazy MongoDB działającej na maszynie
-wirtualnej. Do maszyny logujemy się w ten sposób:
-
-```sh
-mongo --username student --password sesja2013 153.19.1.202/test
-```
-
-*Uwaga:* Użytkownik *student* ma uprawnienia tylko do odczytu w bazie  *test*.
+Kilka przykładowych agregacji korzystające z danych
+[zipcodes](http://media.mongodb.org/zips.json) oraz
+[imieniny](data/wbzyl/imieniny.csv) opisano w artykule
+[Aggregation Framework Examples (MongoDB, Javascript)](Aggregation-Framework-Examples-in-Javascript.md)
 
 
 ## Nasze agregacje
