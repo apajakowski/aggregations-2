@@ -2,10 +2,10 @@
 
 ![Data Wranglers](images/data-wrangler.jpg)
 
-Kilka przykładowych agregacji korzystające z danych
+Kilka przykładowych agregacji korzystających z danych
 [zipcodes](http://media.mongodb.org/zips.json) oraz
 [imieniny](data/wbzyl/imieniny.csv) opisano w artykule
-[Aggregation Framework Examples (MongoDB, Javascript)](Aggregation-Framework-Examples-in-Javascript.md)
+[Aggregation Framework Examples](Aggregation-Framework-Examples-in-Javascript.md)
 
 
 ## Nasze agregacje
