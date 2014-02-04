@@ -70,40 +70,6 @@ Kilka przykładowych agregacji korzystających z danych
 1. [Żarkowski, Mateusz](/docs/mzarkowski.md). [PAMAP – Physical Activity Monitoring](/docs/mzarkowski-pamap.md).
 
 
-## BigData (+1M)
-
-[GetGlue and Timestamped Event Data](http://getglue-data.s3.amazonaws.com/getglue_sample.tar.gz)
-(ok. 11 GB, 19_831_300 json-ów, próbka 100 jsonów [getglue101](/data/wbzyl/getglue101.json)):
-
-```json
-{
-  "_id": ObjectId("5276918832cf3c2b84540440"),
-  "comment": "",
-  "modelName": "movies",
-  "displayName": "",
-  "title": "The Dark Knight",
-  "timestamp": "2008-10-28T16:47:31Z",
-  "image": "http://ia.media-imdb.com/images/...@@._V1._SX94_SY140_.jpg",
-  "userId": "sippey",
-  "private": "false",
-  "director": "Christopher Nolan",
-  "source": "http://www.imdb.com/title/tt0468569/",
-  "version": "1",
-  "link": "http://www.imdb.com/title/tt0468569/",
-  "lastModified": "2011-12-16T19:39:33Z",
-  "action": "Liked",
-  "lctitle": "the dark knight",
-  "objectKey": "movies/dark_knight/christopher_nolan"
-}
-```
-
-Dane z lat 2007–2012, tylko filmy i przedstawienia TV.
-
-Przykładowe aggregacje i zliczania: ilu jest różnych użytkowników
-w danych? jakie jest 10 najpopularniejszych filmów i przedstawień TV?
-ile jest różnych akcji?
-
-
 ## Simple Rules for Reproducible Computations
 
 Provide public access to scripts, runs, and results:
@@ -133,3 +99,10 @@ And two more rules:
 1. Do automatycznego wygenerowania spisu treści możemy użyć narzędzia
 o nazwie [table-of-contents-preprocessor](https://github.com/aslushnikov/table-of-contents-preprocessor).
 1. Jak sobie radzić z [nieczystymi committami](Git-Pull-Requests.md)
+1. Przykładowe **BigData** (+1M rekordów) –
+[GetGlue and Timestamped Event Data](http://getglue-data.s3.amazonaws.com/getglue_sample.tar.gz)
+(ok. 11 GB, 19_831_300 json-ów, próbka 100 jsonów [getglue101](/data/wbzyl/getglue101.json)).
+Dane pochodzą z lat 2007–2012 – tylko filmy i przedstawienia TV.
+Przykładowe aggregacje i zliczania: ilu jest różnych użytkowników
+w danych? jakie jest 10 najpopularniejszych filmów i przedstawień TV?
+ile jest różnych akcji?
