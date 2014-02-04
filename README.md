@@ -103,6 +103,6 @@ And two more rules:
 [GetGlue and Timestamped Event Data](http://getglue-data.s3.amazonaws.com/getglue_sample.tar.gz)
 (ok. 11 GB); próbka 100 jsonów [getglue101](/data/wbzyl/getglue101.json).
 Dane pochodzą z lat 2007–2012 – tylko filmy i przedstawienia TV.
-Przykładowe aggregacje i zliczania: ilu jest różnych użytkowników
+Przykładowe aggregacje: ilu jest różnych użytkowników
 w danych? jakie jest 10 najpopularniejszych filmów i przedstawień TV?
 ile jest różnych akcji?
