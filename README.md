@@ -8,9 +8,8 @@ Kilka przykładowych agregacji korzystających z danych
 [Aggregation Framework Examples](Aggregation-Framework-Examples-in-Javascript.md)
 
 
-## Nasze agregacje
+## Wasze agregacje
 
-1. Bzyl, Włodzimierz. [Imieniny](/docs/wbzyl.md).
 1. [Bełcik, Jakub](/docs/jbelcik/README.md). [Przestępstwa uliczne](/docs/jbelcik/READMEzad2.md).
 1. [Białkowski, Dominik](/docs/dbialkowski.md). [Current Census Blocks for McKinley County](/docs/dbialkowski2.md).
 1. [Brzeziński, Damian](/docs/dbrzezinski/dbrzezinski.md). [GDELT-EventDatabase](/docs/dbrzezinski/dbrzezinski_gdelt.md).
