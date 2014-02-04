@@ -15,10 +15,10 @@ git push origin master
 git branch -d miotla007-master
 ```
 
-Sposób 2, [xxx](https://help.github.com/articles/fork-a-repo#step-3-configure-remotes):
+Sposób 2, [Configure remotes](https://help.github.com/articles/fork-a-repo#step-3-configure-remotes):
 
 ```sh
-# dociaganie zmian z oryginalnego repozytorium
+# dociąganie zmian z oryginalnego repozytorium
 git pull upstream
 
 # rebasing naszego brancha
