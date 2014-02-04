@@ -98,11 +98,11 @@ And two more rules:
 
 1. Do automatycznego wygenerowania spisu treści możemy użyć narzędzia
 o nazwie [table-of-contents-preprocessor](https://github.com/aslushnikov/table-of-contents-preprocessor).
-1. Jak sobie radzić z [nieczystymi committami](Git-Pull-Requests.md)
-1. Przykładowe **BigData** (+1M rekordów) –
+1. Jak sobie radzić z [nieczystymi committami](Git-Pull-Requests.md)?
+1. Przykładowe **big data** (+19M rekordów) –
 [GetGlue and Timestamped Event Data](http://getglue-data.s3.amazonaws.com/getglue_sample.tar.gz)
-(ok. 11 GB, 19_831_300 json-ów, próbka 100 jsonów [getglue101](/data/wbzyl/getglue101.json)).
-Dane pochodzą z lat 2007–2012 – tylko filmy i przedstawienia TV.
+(ok. 11 GB); próbka 100 jsonów [getglue101](/data/wbzyl/getglue101.json).
+Dane pochodzą z lat 2007–2012 – tylko filmy i przedstawienia TV.
 Przykładowe aggregacje i zliczania: ilu jest różnych użytkowników
 w danych? jakie jest 10 najpopularniejszych filmów i przedstawień TV?
 ile jest różnych akcji?
