@@ -99,8 +99,13 @@ And two more rules:
 1. Do automatycznego wygenerowania spisu treści w zadaniach można użyć narzędzia
 [Table of Contents Preprocessor](https://github.com/aslushnikov/table-of-contents-preprocessor).
 1. Jak sobie radzić z [nieczystymi committami](Git-Pull-Requests.md)?
-1. Przykładowe **big data** (+19M rekordów) –
-[GetGlue and Timestamped Event Data](http://getglue-data.s3.amazonaws.com/getglue_sample.tar.gz)
+
+
+## Big Collections
+
+1. [Stanford Large Network Dataset Collection](https://snap.stanford.edu/data/)
+by Jure Leskovec: Online Reviews (Amazon, Movies, Beer)
+1. [GetGlue and Timestamped Event Data](http://getglue-data.s3.amazonaws.com/getglue_sample.tar.gz)
 (ok. 11 GB); próbka 100 jsonów [getglue101](/data/wbzyl/getglue101.json).
 Dane pochodzą z lat 2007–2012 – tylko filmy i przedstawienia TV.
 Przykładowe aggregacje: ilu jest różnych użytkowników
